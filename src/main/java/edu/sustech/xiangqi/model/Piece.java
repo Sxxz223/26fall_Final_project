@@ -5,7 +5,7 @@ package edu.sustech.xiangqi.model;
 public abstract class Piece {
     private final String name;
     private final boolean isRed;
-
+    
     protected Piece(String name, boolean isRed) {
         this.name = name;
         this.isRed = isRed;

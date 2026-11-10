@@ -15,7 +15,7 @@ public class Main {
                 Board board = new Board();
                 ChessFrame frame = new ChessFrame(board);
                 ChessController controller = new ChessController(board, frame.getBoardPanel());
-
+//
                 frame.getBoardPanel().addMouseListener(controller);
                 frame.setVisible(true);
             }

@@ -1,5 +1,13 @@
 package edu.sustech.xiangqi.model;
 
+import edu.sustech.xiangqi.model.Pieces.AdvisorPiece;
+import edu.sustech.xiangqi.model.Pieces.CannonPiece;
+import edu.sustech.xiangqi.model.Pieces.ChariotPiece;
+import edu.sustech.xiangqi.model.Pieces.ElephantPiece;
+import edu.sustech.xiangqi.model.Pieces.GeneralPiece;
+import edu.sustech.xiangqi.model.Pieces.HorsePiece;
+import edu.sustech.xiangqi.model.Pieces.SoldierPiece;
+
 // 保存棋盘数据，并统一检查和执行移动
 
 public class Board {
@@ -18,10 +26,54 @@ public class Board {
     
     //摆放棋子的位置
     private void initializePieces() {
-        pieces[9][3] = new AdvisorPiece();
-        pieces[9][4] = new GeneralPiece();
-        pieces[9][5] = new AdvisorPiece();
-    }
+    // ===== 红方 =====
+
+    // 底线：车马相仕帅仕相马车
+    pieces[9][0] = new ChariotPiece(true);
+    pieces[9][1] = new HorsePiece(true);
+    pieces[9][2] = new ElephantPiece(true);
+    pieces[9][3] = new AdvisorPiece(true);
+    pieces[9][4] = new GeneralPiece(true);
+    pieces[9][5] = new AdvisorPiece(true);
+    pieces[9][6] = new ElephantPiece(true);
+    pieces[9][7] = new HorsePiece(true);
+    pieces[9][8] = new ChariotPiece(true);
+
+    // 炮
+    pieces[7][1] = new CannonPiece(true);
+    pieces[7][7] = new CannonPiece(true);
+
+    // 兵
+    pieces[6][0] = new SoldierPiece(true);
+    pieces[6][2] = new SoldierPiece(true);
+    pieces[6][4] = new SoldierPiece(true);
+    pieces[6][6] = new SoldierPiece(true);
+    pieces[6][8] = new SoldierPiece(true);
+
+    // ===== 黑方 =====
+
+    // 底线：车马象士将士象马车
+    pieces[0][0] = new ChariotPiece(false);
+    pieces[0][1] = new HorsePiece(false);
+    pieces[0][2] = new ElephantPiece(false);
+    pieces[0][3] = new AdvisorPiece(false);
+    pieces[0][4] = new GeneralPiece(false);
+    pieces[0][5] = new AdvisorPiece(false);
+    pieces[0][6] = new ElephantPiece(false);
+    pieces[0][7] = new HorsePiece(false);
+    pieces[0][8] = new ChariotPiece(false);
+
+    // 砲
+    pieces[2][1] = new CannonPiece(false);
+    pieces[2][7] = new CannonPiece(false);
+
+    // 卒
+    pieces[3][0] = new SoldierPiece(false);
+    pieces[3][2] = new SoldierPiece(false);
+    pieces[3][4] = new SoldierPiece(false);
+    pieces[3][6] = new SoldierPiece(false);
+    pieces[3][8] = new SoldierPiece(false);
+}
 
     //判断棋子是否出界
     public boolean isInside(int row, int col) {
@@ -72,7 +124,7 @@ public class Board {
         pieces[fromRow][fromCol] = null;
         pieces[toRow][toCol] = piece;
 
-        // TODO: 仅在成功移动后切换回合（完成），并判断将军、胜负等状态
+        // TODO: 仅在成功移动后切换回合（完成），并判断将军、胜负等状态（目前还不能悔棋）
         
         turn = !turn;
 

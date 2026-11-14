@@ -1,10 +1,13 @@
-package edu.sustech.xiangqi.model;
+package edu.sustech.xiangqi.model.Pieces;
+
+import edu.sustech.xiangqi.model.Board;
+import edu.sustech.xiangqi.model.Piece;
 
 // 红帅
 
 public class GeneralPiece extends Piece {
-    public GeneralPiece() {
-        super("帅", true);
+    public GeneralPiece(boolean isRed) {
+        super(isRed ? "帅" : "将", isRed);
     }
 
     @Override

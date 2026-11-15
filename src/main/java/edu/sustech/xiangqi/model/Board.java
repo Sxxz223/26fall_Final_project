@@ -108,11 +108,8 @@ public class Board {
         }
 
         // TODO: 区分己方占用与敌方棋子，并实现吃子(完成)
-        if (getPieceAt(toRow, toCol).isRed() == turn ) {
-            return false;
-        }
-
-        if (isInside(toRow, toCol) == false){
+        Piece target = getPieceAt(toRow, toCol);
+        if (target != null && target.isRed() == piece.isRed()) {
             return false;
         }
 

@@ -2,8 +2,6 @@ package edu.sustech.xiangqi.view;
 
 import edu.sustech.xiangqi.model.Board;
 import edu.sustech.xiangqi.model.Piece;
-
-import javax.swing.JPanel;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,14 +11,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.RenderingHints;
+import javax.swing.JPanel;
 
 // 绘制棋盘、棋子和选中效果
 public final class BoardPanel extends JPanel {
     private static final long serialVersionUID = 1L;
-    private static final int CELL_SIZE = 52;
-    private static final int MARGIN = 36;
-    private static final int PIECE_RADIUS = 21;
-    private static final int HIT_RADIUS = 23;
+    private static final int CELL_SIZE = 75;
+    private static final int MARGIN = 45;
+    private static final int PIECE_RADIUS = 30;
+    private static final int HIT_RADIUS = 32;
 
     private final Board board;
     private int highlightedRow = -1;
@@ -89,7 +88,7 @@ public final class BoardPanel extends JPanel {
         drawGridLine(g, 7, 3, 9, 5);
         drawGridLine(g, 7, 5, 9, 3);
 
-        g.setFont(new Font(Font.SERIF, Font.BOLD, 23));
+        g.setFont(new Font(Font.SERIF, Font.BOLD, 38));
         int riverY = (screenY(4) + screenY(5)) / 2;
         drawCenteredText(g, "楚 河", screenX(2), riverY);
         drawCenteredText(g, "汉 界", screenX(6), riverY);

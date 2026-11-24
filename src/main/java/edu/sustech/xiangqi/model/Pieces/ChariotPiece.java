@@ -12,7 +12,31 @@ public class ChariotPiece extends Piece {
 
     @Override
     public boolean canMove(Board board, int fromRow, int fromCol, int toRow, int toCol) {
-        // TODO：实现车的移动规则。
-        return false;
+        // 车可以直走，不能斜走
+        if (fromRow != toRow && fromCol != toCol) {
+            return false;
+        }
+        // 检查路径上是否有其他棋子阻挡
+        // 判断是在列上还是行上移动
+        if (fromRow == toRow) {
+            //判断是往前还是往后
+            int step = (toCol - fromCol) > 0 ? 1 : -1;
+            for (int col = fromCol + step; col != toCol; col += step) {
+                //一一判断该行上是否有棋子阻挡
+                if (board.getPieceAt(fromRow, col) != null) {
+                    return false;
+                }
+            }
+        } else {
+            //判断是往前还是往后
+            int step = (toRow - fromRow) > 0 ? 1 : - 1;
+            for (int row = fromRow + step; row != toRow; row += step) {
+                //一一判断该列上是否有棋子阻挡
+                if (board.getPieceAt(row, fromCol) != null) {
+                    return false;
+                }
+            }
+        }   
+        return true;
     }
 }
